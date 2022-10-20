@@ -10,7 +10,10 @@
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
     <bean id="musicBean"
-          class="org.spring.ClassicMusic">
+          class="org.spring.ClassicMusic"
+          init-method="initBean"
+          destroy-method="destrBean"
+          factory-method="getObjClassMusic">
     </bean>
 
     <bean id="rockMusicbean"
@@ -25,17 +28,17 @@
           class="org.spring.RapMusic">
     </bean>
 
-    <bean id="musicPlayer"
-          class="org.spring.MusicPlayer"
-          scope="prototype">
-        <property name="musicList">
-            <list>
-                <ref bean="classicMusicBean"/>
-                <ref bean="rapMusicBean"/>
-                <ref bean="rockMusicbean"/>
-            </list>
-        </property>
-    </bean>
+    <!--    <bean id="musicPlayer"-->
+    <!--          class="org.spring.MusicPlayer"-->
+    <!--          scope="prototype">-->
+    <!--        <property name="musicList">-->
+    <!--            <list>-->
+    <!--                <ref bean="classicMusicBean"/>-->
+    <!--                <ref bean="rapMusicBean"/>-->
+    <!--                <ref bean="rockMusicbean"/>-->
+    <!--            </list>-->
+    <!--        </property>-->
+    <!--    </bean>-->
 
 
 </beans>
