@@ -8,14 +8,18 @@ import java.util.List;
 
 @Component
 public class MusicPlayer {
-    private ClassicMusic classicMusic;
+    private Music music;
 
     @Autowired
-    public MusicPlayer(ClassicMusic classicMusic) {
-        this.classicMusic = classicMusic;
+    public void setMusic(Music music) {
+        this.music = music;
+    }
+
+    public MusicPlayer(Music music) {
+        this.music = music;
     }
 
     public void playMusic() {
-        System.out.println("Playing " + classicMusic.getSong());
+        System.out.println("Playing " + music.getSong());
     }
 }
