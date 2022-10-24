@@ -9,12 +9,17 @@ import java.util.List;
 
 @Component
 public class MusicPlayer {
-    @Autowired
-    @Qualifier("classicMusic")
-    private Music music;
+    private Music music1;
+
+    public MusicPlayer(@Qualifier("rockMusic") Music music1, @Qualifier("classicMusic") Music music2) {
+        this.music1 = music1;
+        this.music2 = music2;
+    }
+
+    private Music music2;
 
 
     public String playMusic() {
-        return "Playing " + music.getSong();
+        return "Playing " + music1.getSong() + ", " + music2.getSong();
     }
 }
